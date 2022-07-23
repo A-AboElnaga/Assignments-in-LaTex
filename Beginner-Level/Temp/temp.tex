@@ -1,0 +1,72 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=0.25in]{geometry}
+\usepackage{amsmath,amssymb,graphicx,ulem,fancyhdr,fix-cm,xcolor,soul}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{lastpage}
+\usepackage[english]{babel}
+\usepackage{titlesec}
+
+\titleformat{\section}[runin]
+{\normalfont\Large\bfseries}{\thesection}{}{}
+\definecolor{background}{rgb}{1,1,0.92}
+\pagenumbering{arabic}
+\graphicspath{ {./images/} }
+\setlength\headheight{110pt} 
+\pagestyle{fancy}
+
+
+%document variables 
+\newcommand{\SheetNum}{sheet \# }
+\newcommand{\SheetName}{sheet name}
+\newcommand{\CourseCode}{Course Code}
+\newcommand{\CourseName}{Course Name}
+\newcommand{\newCommandName}{text to insert}
+
+
+\begin{document}
+\section*{}%Coverpage
+%cover Page,w/ university logo
+ \pagecolor{background}
+ \fancyhead[R]{ \includegraphics[width=12cm]{logo.png}}
+ \fancyhead[L]{\fontsize{15}{20} \selectfont \textbf{\CourseCode - \CourseName\\ Spring '22\\ \ \\}}	
+	\begin{center}
+	\vspace*{6cm}
+	\fontsize{40}{60} \selectfont \SheetNum - \SheetName \\
+	\fontsize{30}{40}\selectfont \CourseCode - \CourseName \\
+	\fontsize{28}{35}\selectfont 120200033 \qquad \ CSE Section 01\\
+	\fontsize{25}{30}\selectfont Ahmad Mongy Saad Aboelnaga\\
+	\fontsize{20}{25}\selectfont Ahmad.Aboelnaga@ejust.edu.eg	
+	\newpage
+	\end{center}
+	\addtolength{\topmargin}{-.75in}
+	\fancyhead[R]{\Large \textbf{\SheetNum}}
+	 \fancyhead[L]{\fontsize{18}{20} \selectfont \CourseCode - \CourseName, Spring '22}
+\section*{\LARGE Question 1:}
+\newpage
+\section*{\LARGE Question 2:}
+\newpage
+\section*{\LARGE Question 3:}
+\newpage
+\section*{\LARGE Question 4:}
+\newpage
+\section*{\LARGE Question 5:}
+\newpage
+\section*{\LARGE Question 6:}
+\newpage
+\section*{\LARGE Question 7:}
+\newpage
+\section*{\LARGE Question 8:} text\\
+ Tools used in creating this document:
+ \begin{itemize}
+ \item Texmaker 5.0.4
+ \item Spyder IDE 5.1.5 with python 3.8.5
+\end{itemize}  
+ 
+ \copyright All questions in this file has been adapted from the sheet provided by the course instructor, I have only reorganized the sheet and attempted to answer it. Please do not share without the permission of the owner.\\
+\color{blue}Ahmad.Aboelnaga@ejust.edu.eg\\
+ID:120200033, CSE01
+ 
+  
+\end{document}			
