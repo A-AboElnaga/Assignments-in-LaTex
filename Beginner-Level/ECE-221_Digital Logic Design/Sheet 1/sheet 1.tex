@@ -1,0 +1,142 @@
+\documentclass[a4paper,12pt]{extarticle}
+\usepackage[margin=0.25in]{geometry}
+\usepackage{amsmath,amssymb,graphicx,ulem,fancyhdr,fix-cm,xcolor,soul}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{lastpage}
+\usepackage[english]{babel}
+\usepackage{titlesec}
+
+\titleformat{\section}[runin]
+{\normalfont\Large\bfseries}{\thesection}{}{}
+\definecolor{background}{rgb}{1,1,0.92}
+\pagenumbering{arabic}
+\graphicspath{ {./images/} }
+\setlength\headheight{110pt} 
+\pagestyle{fancy}
+
+
+%document variables 
+\newcommand{\SheetNum}{Assignment 1 }
+\newcommand{\SheetName}{Binary Number System}
+\newcommand{\CourseCode}{ECE 222 }
+\newcommand{\CourseName}{Digital Logic Design Lab}
+
+
+
+\begin{document}
+\section*{}%Coverpage
+%cover Page,w/ university logo
+ \pagecolor{background}
+ \fancyhead[R]{ \includegraphics[width=10cm]{logo.png}}
+ \fancyhead[L]{\fontsize{15}{20} \selectfont \textbf{\CourseCode - \CourseName\\ Spring '22\\ \ \\}}	
+	\begin{center}
+	\vspace*{6cm}
+	\fontsize{35}{60} \selectfont \SheetNum - \SheetName \\
+	\fontsize{30}{40}\selectfont \CourseCode - \CourseName \\
+	\fontsize{28}{35}\selectfont 120200033 \qquad \ CSE Section 01\\
+	\fontsize{25}{30}\selectfont Ahmad Mongy Saad Aboelnaga\\
+	\fontsize{20}{25}\selectfont Ahmad.Aboelnaga@ejust.edu.eg	
+	\newpage
+	\end{center}
+	\addtolength{\topmargin}{-.75in}
+	\fancyhead[R]{\Large \textbf{\SheetNum}}
+	 \fancyhead[L]{\fontsize{18}{20} \selectfont \CourseCode - \CourseName, Spring '22}
+\section*{\LARGE Questions }\textbf{\LARGE {1:3}}\\[0.5cm]
+1) What is the exact number of bytes in a system that contains?
+\begin{itemize}
+\item a. 32K bytes.
+\item b. 64M bytes.
+\item c. 6.4G bytes.
+\end{itemize}
+{\color{blue}\textbf{Solution:}}\\[0.3cm]
+\indent \color{red} a)$ \color{black} \text{ 32K bytes} \rightarrow 32 \times 2^{10} \text{ bytes} \rightarrow 32768 \text{ bytes}$\\[0.4cm]
+\indent \color{red} b) \color{black}$ \color{black} \text{ 64M bytes} \rightarrow 64 \times 2^{20} \text{ bytes} \rightarrow 67108864 \text{ bytes}$\\[0.4cm]
+\indent \color{red} c) \color{black}$\text{ 6.4G bytes} \rightarrow 6.4 \times 2^{30}  \text{ bytes} \rightarrow 6871947673.6 \approx 6871947673 \text{ bytes} $\\[0.5cm]
+%Question2
+2) Convert the following numbers with the indicated bases to decimal:
+\begin{itemize}
+\item a. $(4310)_5$
+\item b. $(198)_{12}$
+\item c. $(435)_8$
+\item d. $(345)_6$
+\end{itemize}
+{\color{blue}\textbf{Solution:}}\\[0.3cm]
+\indent \color{red} a) $\color{black} (4310)_5 \rightarrow 4 \times 5^3 + 3 \times 5^2 + 1 \times 5^1 + 0 \times 5^0 \rightarrow (580)_{10} $\\[0.4cm]
+\indent \color{red} b) $\color{black} (198)_{12} \rightarrow 1 \times 12^2 + 9 \times 12^1 + 8 \times 12^0 \rightarrow (260)_{10} $\\[0.4cm]
+\indent \color{red} c) $\color{black} (435)_8 \rightarrow 4 \times 8^2 + 3 \times 8^1 + 5 \times 8^0 \rightarrow (285)_{10} $\\[0.5cm]
+\indent \color{red} d) \color{black} $\color{black} (345)_6 \rightarrow 3 \times 6^2 + 4 \times 6^1 + 5 \times 6^0 \rightarrow (137)_{10} $\\[0.5cm]
+3) Determine the base of the numbers in each case for the following operations to be correct:
+\begin{itemize}
+\item a. 14/2 = 5.
+\item b. 54/4 = 13.
+\item c. 24 + 17 = 40.
+\end{itemize}
+{\color{blue}\textbf{Solution:}}\\[0.3cm]
+\indent \color{red} a) $\color{black} (14)_r = (2)_r \times (5)_r \rightarrow 1 \times r^1 + 4 \times r^0 = (2 \times r^0) \times (5  \times r^0) \rightarrow r + 4 = 10 { \color{cyan} \Rightarrow r =6}$\\[0.4cm]
+\indent \color{red} b) $\color{black} (54)_r = (4)_r \times (13)_r \rightarrow 5 \times r^1 + 4 \times r^0 = (4 \times r^0) \times (1  \times r^1 + 3  \times r^0) \rightarrow 5r +4 = 4r + 12 { \color{cyan} \Rightarrow r =8}$\\[0.4cm]
+\indent \color{red} c) $\color{black} (24)_r + (17)_r = (40)_r  \rightarrow 2 \times r^1 + 4 \times r^0 + 1 \times r^1 + 7 \times r^0 = 4 \times r^1 + 0 \times r^0 \rightarrow 3r +11 = 4r { \color{cyan} \Rightarrow r =11}$ \color{black}\\[0.4cm]
+\newpage
+\section*{\LARGE Questions }\textbf{\LARGE {4:6}}\\[0.5cm]
+4) Convert the hexadecimal number 64CD to binary, and then convert it from binary to octal.\\[0.4cm]
+{\color{blue}\textbf{Solution:}}\\[0.3cm]
+\indent To Binary:
+ $\color{black} ({\color{red}6}{\color{cyan}4}{\color{blue}C}{\color{violet}D})_{16} \rightarrow ({\color{red}0110}{\color{cyan}0100}{\color{blue}1100}{\color{violet}1101})_{2}$\\[0.2cm]
+\indent To Octal: $({\color{orange}110}{\color{red}010}{\color{cyan}011}{\color{blue}001}{\color{violet}101})_{2} \rightarrow ({\color{orange}6}{\color{red}2}{\color{cyan}3}{\color{blue}1}{\color{violet}5})_{8}$\\[1cm]
+5) Express the following numbers in decimal:
+\begin{itemize}
+\item a. $(10110.0101)_2$
+\item b. $(16.5)_{16}$
+\item c. $(26.24)_8$
+\item d. $(DADA.B)_{16}$
+\item e. $(1010.1101)_{2}$
+\end{itemize}
+{\color{blue}\textbf{Solution:}}\\[0.3cm]
+\indent \color{red} a) \color{black} $(10110.0101)_2 \rightarrow 1 \times 2^4 + 1 \times 2^3 +1 \times 2^2 + 1 \times 2^{-2} +1 \times 2^{-4} \, { \color{cyan} \Rightarrow (22.3125)_{10}}$\\[0.2cm]
+\indent \color{red} b) \color{black} $(16.5)_{16} \rightarrow 1 \times 16^1 + 6 \times 16^0 +5 \times 16^{-1} \, { \color{cyan} \Rightarrow (22.3125)_{10}}$\\[0.2cm]
+\indent \color{red} c) \color{black} $(26.24)_{8} \rightarrow 2 \times 8^1 + 6 \times 8^0 +2 \times 8^{-1} + 4 \times 8^{-2} \, { \color{cyan} \Rightarrow (22.3125)_{10}}$\\[0.2cm]
+\indent \color{red} d) \color{black} $(DADA.B)_{16} \rightarrow 13 \times 16^3 + 10 \times 16^2 +13 \times 16^{1} + 10 \times 16^0 + 11 \times 16^{-1} \, { \color{cyan} \Rightarrow (56026.6875)_{10}}$\\[0.2cm]
+\indent \color{red} e) \color{black} $(1010.1101)_{2} \rightarrow 1 \times 2^3 + 1 \times 2^1 +1 \times 2^{-1} + 1 \times 2^{-2} + 1 \times 2^{-4} \, { \color{cyan} \Rightarrow (10.8125)_{10}}$\\[1cm]
+6) Convert the following binary numbers to hexadecimal and to decimal:
+
+\begin{itemize}
+\item a. 1.10010
+\item b. 110.010. Explain why the decimal answer in (b) is 4 times that in (a).
+\end{itemize}
+{\color{blue}\textbf{Solution:}}\\[0.3cm]
+\indent \color{red} a) \color{black} To decimal:$(1.10010)_2 \rightarrow 1 \times 2^0 + 1 \times 2^{-1} +1 \times 2^{-4} \, { \color{cyan} \Rightarrow (1.5625)_{10}}$\\
+\indent To Hexadecimal:$({\color{red}0001}.{\color{black}1001}0)_2  \, { \color{cyan} \Rightarrow ({\color{red}1}.{\color{black}9})_{16}}$\\[0.2cm]
+\indent \color{red} b) \color{black} To decimal$(110.010)_2 \rightarrow 1 \times 2^2 + 1 \times 2^{1} +1 \times 2^{-2} \, { \color{cyan} \Rightarrow (6.25)_{10}}$\\
+\indent To Hexadecimal:$({\color{red}0110}.{\color{black}0100})_2  \, { \color{cyan} \Rightarrow ({\color{red}6}.{\color{black}4})_{16}}$\\[0.1cm]
+Explanation: As the decimal point has moved two digits to the right without changing the value of the corresponding bits this is equivalent to multiplication by 4 $ \, (2^2)$, similar to multiplying by 10 in decimal numbers (base 10) which moves the decimal point one step to the right but here as we work with base 2 a multiplication by 2 moves the floating point one step to the right  
+\newpage
+\section*{\LARGE Question }\textbf{\LARGE {7}}\\[0.5cm]
+7) Do the following conversion problems:
+\begin{itemize}
+\item a. Convert decimal 27.315 to binary.
+\item b. Calculate the binary equivalent of 2/3 out to eight places. Then convert from binary to decimal. How close is the result to 2/3?
+\item c. Convert the binary result in (b) into hexadecimal. Then convert the result to decimal. Is the answer the same?
+\end{itemize}
+{\color{blue}\textbf{Solution:}}\\[0.3cm]
+\indent \color{red} a) \color{black} $(27.315)_{10} \approx(11011.010100)_2 $\\[0.2cm]
+\indent \color{red} b) \color{black} $(2/3)_{10} \approx(0.10101010)_2$\\
+\indent \quad $(0.10101010)_2 \rightarrow 1 \times 2^{-1} + 1 \times 2^{-3} + 1 \times 2^{-5} + 1 \times 2^{-7}   = (0.6640625)_{10}$\\
+\indent \quad Abs error $= (2/3)-0.6640625 =2.6041667 \times 10^{-3} $\\[0.2cm]
+\indent \color{red} c) \color{black} To Hexadecimal:
+ $\color{black} (0.{\color{red}1010}{\color{cyan}1010}) \rightarrow (0.{\color{red}A}{\color{cyan}A})$\\[0.2cm]
+ \indent \quad To Decimal:
+ $\color{black} (0.{\color{red}A}{\color{cyan}A}) \rightarrow 10\times 16^{-1} +10\times 16^{-2}  = 0.6640625 \, $\\[0.3cm]
+\indent \quad Yes, they are the same as there is a finite representation of the number in binary and hexadecimal\\[11cm]
+
+ Tools used in creating this document:
+ \begin{itemize}
+ \item Texmaker 5.0.4
+\end{itemize}  
+
+ \copyright All questions in this file has been adapted from the sheet provided by the course instructor, I have only reorganized the sheet and attempted to answer it. Please do not share without the permission of the owner.\\
+\color{blue}Ahmad.Aboelnaga@ejust.edu.eg\\
+ID:120200033, CSE01
+ 
+  
+\end{document}			

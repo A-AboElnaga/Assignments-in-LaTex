@@ -1,0 +1,514 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=0.25in]{geometry}
+\usepackage{amsmath,amssymb,graphicx,ulem,fancyhdr,fix-cm,xcolor,soul}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{lastpage}
+\usepackage[english]{babel}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{circuitikz}
+\usetikzlibrary{calc}
+
+%\titleformat{\section}[runin]
+%{\normalfont\Large\bfseries}{\thesection}{}{}
+\definecolor{background}{rgb}{1,1,0.92}
+\pagenumbering{arabic}
+\graphicspath{ {./images/} }
+\setlength\headheight{110pt} 
+\pagestyle{fancy}
+
+
+%document variables 
+\newcommand{\SheetNum}{Sheet 3 }
+\newcommand{\SheetName}{Boolean Algebra \& Logic Gates}
+\newcommand{\CourseCode}{ECE 222 }
+\newcommand{\CourseName}{Digital Logic Design}
+\newcommand{\p}{^\prime}
+
+\begin{document}
+\section*{}%Coverpage
+%cover Page,w/ university logo
+ \pagecolor{background}
+ \fancyhead[R]{ \includegraphics[width=11cm]{logo.png}}
+ \fancyhead[L]{\fontsize{15}{20} \selectfont \textbf{\CourseCode - \CourseName\\ Spring '22\\ \ \\}}	
+	\begin{center}
+	\vspace*{6cm}
+	\fontsize{33}{60} \selectfont \SheetNum - \SheetName \\
+	\fontsize{28}{40}\selectfont \CourseCode - \CourseName \\
+	\fontsize{28}{35}\selectfont 120200033 \qquad \ CSE Section 01\\
+	\fontsize{25}{30}\selectfont Ahmad Mongy Saad Aboelnaga\\
+	\fontsize{20}{25}\selectfont Ahmad.Aboelnaga@ejust.edu.eg	
+	\newpage
+	\end{center}
+	\addtolength{\topmargin}{-.75in}
+	\fancyhead[R]{\Large \textbf{\SheetNum}}
+	 \fancyhead[L]{\fontsize{18}{20} \selectfont \CourseCode - \CourseName, Spring '22}
+\section*{\LARGE Questions 1:2}
+\begin{enumerate}[label=\textbf{\arabic* .}]
+\item \textbf{Find the complement of the following expressions:}
+    \begin{enumerate}[label=\alph* .]
+    \item $xy^\prime +x^\prime y$\\[0.3cm]
+    {\color{blue} Solution:
+    \begin{align*}
+    \overline{(xy^\prime +x^\prime y)} &= \overline{(xy^\prime)} \cdot  \overline{(x^\prime y)}\\
+    &= (x\p + y) \cdot (x +y')
+    \end{align*}}
+    \item $(a + c)(a + {b}')({a}' + b + {c}')\\[0.3cm]$
+    {\color{blue} Solution:
+    \begin{align*}
+    \overline{(a + c)(a + {b}')({a}' + b + {c}')} &= \overline{(a+c)}+ \overline{(a+{b}')}+  \overline{({a}' + b + {c}')}\\
+    &= (a' \cdot c') +(a' \cdot b)+(a \cdot b' \cdot c)
+    \end{align*}}
+    \item $z + {z}'({v}'w + xy)$\\[0.3cm]
+    {\color{blue} Solution:
+    \begin{align*}
+    \overline{z + {z}'({v}'w + xy)} &= z' \cdot [z+\overline{({v}'w + xy)}]\\
+    &= z' \cdot [z+(v+w')\cdot(x'+y')]\\
+    \end{align*}}
+    \end{enumerate}
+    \item \textbf{Simplify the following Boolean expressions to a minimum number of literals:}
+      \begin{enumerate}[label=\alph* .]
+    \item $ABC +A'B+ABC'$\\[0.3cm]
+        {\color{blue} Solution:
+        \begin{align*}
+        ABC +A'B+ABC' &= B(AC +A' +AC')\\
+        &= B(A(C+C')+A')\\
+        &= B(A+A')\\
+        &= B
+        \end{align*}}
+    \item $x'yz + xz $\\[0.3cm]
+        {\color{blue} Solution:
+        \begin{align*}
+        x'yz +xz &= z(x'y+x)\\
+        &= z((x'+x) \cdot (y+x))\\
+        &= z(y+x)
+        \end{align*}}
+    \item $(x+y)'\cdot(x'+y')$\\[0.3cm]
+        {\color{blue} Solution:
+        \begin{align*}
+        (x+y)'\cdot(x'+y') &=(x' \cdot y') \cdot (x'+y')\\
+        &= x'y'\\[0.2cm]
+        \end{align*}}
+    \item $xy + x(wz+wz')$\\[0.3cm]
+        {\color{blue} Solution:
+        \begin{align*}
+            xy + x(wz+wz') &= xy + x(w(z+z'))\\
+            &= xy +xw\\
+            &= x(y+w)
+        \end{align*}}
+    \item $(BC' +A'D)(AB'+ CD')$\\[0.3cm]
+        {\color{blue} Solution:
+        \begin{align*}
+            (BC' +A'D)(AB'+ CD') &= BC'AB' +CD'BC'+A'DAB'+A'DCD'\\
+            &= 0 + 0 + 0 + 0\\  &= 0
+        \end{align*}}
+    \item $(a'+c')(a+b'+c')$\\[0.3cm]
+        {\color{blue} Solution:
+        \begin{align*}
+        (a'+c')(a+b'+c') &= (a'a +a'b'+a'c')+(c'a+c'b'+c'c')\\
+        &= a'b' +a'c'+c'a+c'b'+c'\\
+        &= a'b' +c'(a'+a+b'+1) \\
+        &= a'b' +c'
+        \end{align*}}
+    \end{enumerate}
+    \item \textbf{Reduce the following Boolean expressions to the indicated number of literals:}
+        \begin{enumerate}[label=\alph* .]
+    \item $A'C' + ABC + AC'$  \hspace{8cm} To three literals\\[0.3cm]
+        {\color{blue} Solution:
+        \begin{align*}
+            A'C' + ABC + AC' &= A'C' + A(BC + C')\\
+            &= A'C' + A(B+C') \cdot (C+C')\\
+            &= A'C' + AB+AC')\\
+            &= C'(A'+A) +AB\\
+            &= C'+AB
+        \end{align*}}
+    \item $(x'y'+z)'+z+xy+ wz$ \hspace{7.075cm} To three literals\\[0.3cm]
+        {\color{blue} Solution:
+        \begin{align*}
+           (x'y'+z)'+z+xy+ wz &= x+y \cdot z'+ z +xy + wz\\
+            &= z'(x+y) + z (1 + w) +xy\\
+            &= z'(x+y) +z +xy\\
+            &= (z'+z)(x+y+z) +xy\\
+            &= x+ y+ z+xy\\
+            &= x+ y(1+x) +z\\
+            &= x+y+z
+        \end{align*}}
+    \item $A'B(D'+C'D)+B(A+A'CD)$ \hspace{5.55cm} To one literal\\[0.3cm]
+        {\color{blue} Solution:
+        \begin{align*}
+           A'B(D'+C'D)+B(A+A'CD) &=B(A'D'+A'C'D+A+A'CD)\\
+           &= B[A+ A'(D'+C'D+CD)]\\
+           &= B[A+A'(D'+D(C'+C))]\\
+           &= B[A+A'(D'+D)]\\
+           &= B[A+A']\\
+           &= B
+        \end{align*}}
+    \item $(A' + C) (A' + C') (A + B + C'D)$\hspace{5.73cm}  To four literals\\[0.3cm]
+        {\color{blue} Solution:
+        \begin{align*}
+           (A' + C) (A' + C') (A + B + C'D)&= (A'+CC')(A+B+C'D)\\
+           &= A'A+A'B+A'C'D\\
+           &= A'(B+C'D)
+        \end{align*}}
+    \item $ABC'D + A'BD + ABCD$ \hspace{6.77cm} To two literals\\[0.3cm]
+        {\color{blue} Solution:
+        \begin{align*}
+           ABC'D + A'BD + ABCD &= BD(AC'+AC+A')\\
+           &= BD[A(C'+C)+A']\\
+           &= BD[A+A']\\
+           &= BD
+        \end{align*}}
+    \end{enumerate}
+    \item List the truth table of the function:
+        \begin{enumerate}[label=\alph* .]
+        \item \textbf{$F =xy +xy'+y'z \xrightarrow{=x+y'z}$}
+        {\color{blue}
+        \begin{tabular}{|c|c|c|}
+             \hline
+             No.&x y z& F  \\
+             \hline
+             1&0 0 0& 0\\
+             \hline
+             2&0 0 1& 1\\
+             \hline
+             3&0 1 0& 0\\
+             \hline
+             4&0 1 1& 0\\
+             \hline
+             5&1 0 0& 1\\
+             \hline
+             6&1 0 1& 1\\
+             \hline
+             7&1 1 0& 1\\
+             \hline
+             8&1 1 1& 1\\
+             \hline
+        \end{tabular}}
+        \item \textbf{$F=bc+a'c' \longrightarrow \hspace{1.65cm}$}
+        {\color{blue}
+        \begin{tabular}{|c|c|c|}
+             \hline
+             No.&a b c& F  \\
+             \hline
+             1&0 0 0& 1\\
+             \hline
+             2&0 0 1& 0\\
+             \hline
+             3&0 1 0& 1\\
+             \hline
+             4&0 1 1& 1\\
+             \hline
+             5&1 0 0& 0\\
+             \hline
+             6&1 0 1& 0\\
+             \hline
+             7&1 1 0& 0\\
+             \hline
+             8&1 1 1& 1\\
+             \hline
+        \end{tabular}}
+        \end{enumerate}{\newpage}
+    \item Draw logic diagrams to implement the following Boolean expressions:
+        \begin{enumerate}[label=\alph* .]
+        \item  $F = (u + x') (y' + z)$\\[0.3cm]
+        {\color{blue}
+        {\begin{tikzpicture}
+        % Circuit style
+        \ctikzset{
+        logic ports=ieee,
+        logic ports/scale=0.8,
+        logic ports/fill=cyan}
+        
+        % Logic ports
+        \node[or port] (ORa) at (2,-0.25){};
+        \node[or port] (ORb) at (2,-1.5){};
+        
+        \node[and port](ANDa)at (5, -0.875){};
+        
+        % Connection
+        \draw (ORa.out) -| (ANDa.in 1);
+        \draw (ORb.out) -| (ANDa.in 2);
+        \draw (ORa.in 1) -- ++(-1.5,0)node[left](x){$x'$};
+        \draw (ORa.in 2) -- ++(-1.5,0)node[left](u){$u$};
+        \draw (ORb.in 1) -- ++(-1.5,0)node[left](y){$y'$};
+        \draw (ORb.in 2) -- ++(-1.5,0)node[left](z){$z$};
+        \draw (ANDa.out) -- ++(1,0)node[right]{$F$};
+        \end{tikzpicture}}}
+        \item $F = (u' y)' + x$\\[0.3cm]
+        {\color{blue}
+        {\begin{tikzpicture}
+        % Circuit style
+        \ctikzset{
+        logic ports=ieee,
+        logic ports/scale=0.8,
+        logic ports/fill=cyan}
+        
+        % Logic ports
+        \node[and port] (Anda) at (2,-0.25){};
+        \node[or port] (ORa) at (6,-1.75){};
+        \node[not port](Nota)at (4, -0.875){};
+        
+        % Connection
+        \draw (Nota.out) -| (ORa.in 1);
+        \draw (Anda.out) -| (Nota.in);
+        \draw (ORa.in 2) -- ++(-1.5,0)node[left](x){$x$};
+        \draw (Anda.in 2) -- ++(-1.5,0)node[left](u){$u'$};
+        \draw (Anda.in 1) -- ++(-1.5,0)node[left](y){$y$};
+        \draw (ORa.out) -- ++(1,0)node[right]{$F$};
+        \end{tikzpicture}}}
+        \item $F = (u' + x') (y + z')$\\[0.3cm]
+        {        {\color{blue}
+        {\begin{tikzpicture}
+        % Circuit style
+        \ctikzset{
+        logic ports=ieee,
+        logic ports/scale=0.8,
+        logic ports/fill=cyan}
+        
+        % Logic ports
+        \node[or port] (ORa) at (2,-0.25){};
+        \node[or port] (ORb) at (2,-1.5){};
+        
+        \node[and port](ANDa)at (5, -0.875){};
+        
+        % Connection
+        \draw (ORa.out) -| (ANDa.in 1);
+        \draw (ORb.out) -| (ANDa.in 2);
+        \draw (ORa.in 1) -- ++(-1.5,0)node[left](x){$x'$};
+        \draw (ORa.in 2) -- ++(-1.5,0)node[left](u){$u'$};
+        \draw (ORb.in 1) -- ++(-1.5,0)node[left](y){$y$};
+        \draw (ORb.in 2) -- ++(-1.5,0)node[left](z){$z'$};
+        \draw (ANDa.out) -- ++(1,0)node[right]{$F$};
+        \end{tikzpicture}}}}
+        \item $F = u(x' z) + y'$\\[0.3cm]
+                {\color{blue}
+        {\begin{tikzpicture}
+        % Circuit style
+        \ctikzset{
+        logic ports=ieee,
+        logic ports/scale=0.8,
+        logic ports/fill=cyan}
+        
+        % Logic ports
+        \node[and port] (Anda) at (2,-0.25){};
+        \node[and port] (Andb) at (5,-0.75){};
+        
+        \node[or port](ORa)at (7.5, -1.5){};
+        
+        % Connection
+        \draw (Anda.out) -| (Andb.in 1);
+        \draw (Andb.out) -| (ORa.in 1);
+        \draw (ORa.in 2) -- ++(-1.5,0)node[left](y){$y'$};
+        \draw (Anda.in 1) -- ++(-1.5,0)node[left](x){$x'$};
+        \draw (Anda.in 2) -- ++(-1.5,0)node[left](z){$z$};
+        \draw (Andb.in 2) -- ++(-1.5,0)node[left](u){$u$};
+        \draw (ORa.out) -- ++(1,0)node[right]{$F$};
+        \end{tikzpicture}}}
+        \item $F = u + x + x'(u + y')$\\[0.3cm]
+                {\color{blue}
+        {\begin{tikzpicture}
+        % Circuit style
+        \ctikzset{
+        logic ports=ieee,
+        logic ports/scale=0.8,
+        logic ports/fill=cyan}
+        
+        % Logic ports
+        \node[or port] (ORa) at (2,-0.25){};
+        \node[or port] (ORb) at (7,-1.5){};
+        \node[or port] (ORc) at (9,-2.5){};
+        \node[and port](ANDa)at (5, -0.875){};
+        
+        % Connection
+        \draw (ORa.out) -| (ANDa.in 1);
+        \draw (ANDa.out) -| (ORb.in 1);
+        \draw (ORb.out) -| (ORc.in 1);
+        \draw (ORc.in 2) -- ++(-1.5, 0)node[left](x){$x$};;
+        \draw (ORa.in 1) -- ++(-1.5,0)node[left](ypr){$y'$};
+        \draw (ORa.in 2) -- ++(-1.5,0)node[left](u){$u$};
+        \draw (ANDa.in 2) -- ++(-1.5,0)node[left](xpr){$x'$};
+        \draw (ORb.in 2) -| (ORa.in 2);
+        \draw (ORc.out) -- ++(1,0)node[right]{$F$};
+        \end{tikzpicture}}}
+        \end{enumerate}
+        \item Implement the Boolean function $F = xy + x'y' + y'z$
+        with:\\
+        \begin{enumerate}[label= \alph* .]
+            \item AND, OR, and inverter gates.\\[0.3cm]
+            {\color{blue}
+        {\begin{tikzpicture}
+        % Circuit style
+        \ctikzset{
+        logic ports=ieee,
+        logic ports/scale=0.8,
+        logic ports/fill=cyan}
+        
+        % Logic ports
+        \node[or port] (ORa) at (6.5,-0.5){};
+        \node[or port] (ORb) at (8.5,-1.5){};
+        \node[and port](ANDa)at (2, 0){};
+        \node[and port](ANDb)at (2, -1){};
+        \node[and port](ANDc)at (2, -2){};
+        % Connection
+        \draw (ANDa.out) -| (ORa.in 1);
+        \draw (ANDb.out) -| (ORa.in 2);
+        \draw (ANDb.in 1) -- ++(-1.5,0)node[left](xpr){$x'$};
+        \draw (ANDb.in 2) -- ++(-1.5,0)node[left](ypr){$y'$};
+        \draw (ORa.out)-| (ORb.in 1);
+        \draw (ANDc.out) -| (ORb.in 2);
+        \draw (ANDa.in 1)-- ++(-1.5,0)node[left](x){$x$};
+        \draw (ANDa.in 2)-- ++(-1.5,0)node[left](y){$y$};
+        \draw (ANDc.in 1) -| (ANDb.in 2);
+        \draw (ANDc.in 2) -- ++(-1.5,0)node[left](z){$z$};
+        \draw (ORb.out) -- ++(1,0)node[right]{$F$};
+        \end{tikzpicture}}}
+        \newpage
+        \item OR and inverter gates $\rightarrow {\color{blue}(x'+y')'+(x+y)'+(y+z')'}$\\[0.3cm]
+                    {\color{blue}
+        {\begin{tikzpicture}
+        % Circuit style
+        \ctikzset{
+        logic ports=ieee,
+        logic ports/scale=0.8,
+        logic ports/fill=cyan}
+        
+        % Logic ports
+        \node[or port] (ORa) at (6.5,-0.5){};
+        \node[or port] (ORb) at (8.5,-1.5){};
+        \node[or port](ANDa)at (2, 0){};
+        \node[or port](ANDb)at (2, -1){};
+        \node[or port](ANDc)at (2, -2){};
+        \node[not port](NOTa) at(3.3,0){};
+        \node[not port](NOTb) at(3.3,-1){};
+        \node[not port](NOTc) at(3.3,-2){};
+        
+        % Connection
+        \draw (ANDa.out) -- (NOTa.in);
+        \draw (ANDb.out) -- (NOTb.in);
+        \draw (NOTa.out) -| (ORa.in 1);
+        \draw (NOTb.out) -| (ORa.in 2);
+        \draw (ANDb.in 1) -- ++(-1.5,0)node[left](xpr){$x$};
+        \draw (ANDb.in 2) -- ++(-1.5,0)node[left](ypr){$y$};
+        \draw (ORa.out)-| (ORb.in 1);
+        \draw (ANDc.out) -- (NOTc.in);
+        \draw (NOTc.out) -| (ORb.in 2);
+        \draw (ANDa.in 1)-- ++(-1.5,0)node[left](x){$x'$};
+        \draw (ANDa.in 2)-- ++(-1.5,0)node[left](y){$y'$};
+        \draw (ANDc.in 1) -| (ANDb.in 2);
+        \draw (ANDc.in 2) -- ++(-1.5,0)node[left](z){$z'$};
+        \draw (ORb.out) -- ++(1,0)node[right]{$F$};
+        \end{tikzpicture}}}
+        \item NOR and inverter gates.\\[0.3cm]
+                            {\color{blue}
+        {\begin{tikzpicture}
+        % Circuit style
+        \ctikzset{
+        logic ports=ieee,
+        logic ports/scale=0.8,
+        logic ports/fill=cyan}
+        
+        % Logic ports
+        \node[nor port] (ORa) at (4.5,-0.5){};
+        \node[nor port] (ORb) at (8.5,-1.5){};
+        \node[nor port](ANDa)at (2, 0){};
+        \node[nor port](ANDb)at (2, -1){};
+        \node[nor port](ANDc)at (2, -2){};
+        \node[not port](NOTa) at(6.5,-0.5){};
+        \node[not port](NOTb) at(10,-1.5){};
+        % Connection
+        \draw (ANDa.out) -| (ORa.in 1);
+        \draw (ANDb.out) -| (ORa.in 2);
+        \draw (NOTa.out) -| (ORb.in 1);
+        \draw (ANDb.out) -| (ORa.in 2);
+        \draw (ANDb.in 1) -- ++(-1.5,0)node[left](xpr){$x$};
+        \draw (ANDb.in 2) -- ++(-1.5,0)node[left](ypr){$y$};
+        \draw (ORa.out)-- (NOTa.in);
+        \draw (ANDc.out) -| (ORb.in 2);
+        \draw (ANDa.in 1)-- ++(-1.5,0)node[left](x){$x'$};
+        \draw (ANDa.in 2)-- ++(-1.5,0)node[left](y){$y'$};
+        \draw (ANDc.in 1) -| (ANDb.in 2);
+        \draw (ANDc.in 2) -- ++(-1.5,0)node[left](z){$z'$};
+        \draw (NOTb.out) -- ++(1,0)node[right]{$F$};
+        \end{tikzpicture}}}
+        \item AND and inverter gates.\\[0.3cm]
+{\color{blue}
+        {\begin{tikzpicture}
+        % Circuit style
+        \ctikzset{
+        logic ports=ieee,
+        logic ports/scale=0.8,
+        logic ports/fill=cyan}
+        
+        % Logic ports
+        \node[and port] (ORa) at (6.5,-0.5){};
+        \node[and port] (ORb) at (8.5,-1.5){};
+        \node[and port](ANDa)at (2, 0){};
+        \node[and port](ANDb)at (2, -1){};
+        \node[and port](ANDc)at (2, -2){};
+        \node[not port](NOTa) at(3.3,0){};
+        \node[not port](NOTb) at(3.3,-1){};
+        \node[not port](NOTc) at(3.3,-2){};
+        \node[not port](NOTd) at(10,-1.5){};
+        % Connection
+        \draw (ANDa.out) -- (NOTa.in);
+        \draw (ANDb.out) -- (NOTb.in);
+        \draw (NOTa.out) -| (ORa.in 1);
+        \draw (NOTb.out) -| (ORa.in 2);
+        \draw (ANDb.in 1) -- ++(-1.5,0)node[left](xpr){$x'$};
+        \draw (ANDb.in 2) -- ++(-1.5,0)node[left](ypr){$y'$};
+        \draw (ORa.out)-| (ORb.in 1);
+        \draw (ANDc.out) -- (NOTc.in);
+        \draw (NOTc.out) -| (ORb.in 2);
+        \draw (ANDa.in 1)-- ++(-1.5,0)node[left](x){$x$};
+        \draw (ANDa.in 2)-- ++(-1.5,0)node[left](y){$y$};
+        \draw (ANDc.in 1) -| (ANDb.in 2);
+        \draw (ANDc.in 2) -- ++(-1.5,0)node[left](z){$z$};
+        \draw (ORb.out) -- (NOTd.in);
+        \draw (NOTd.out) -- ++(1,0)node[right]{$F$};
+        \end{tikzpicture}}}
+        \item NAND and inverter gates.\\[0.3cm]
+        {\color{blue}
+        {\begin{tikzpicture}
+        % Circuit style
+        \ctikzset{
+        logic ports=ieee,
+        logic ports/scale=0.8,
+        logic ports/fill=cyan}
+        
+        % Logic ports
+        \node[nand port] (ORa) at (4.5,-0.5){};
+        \node[nand port] (ORb) at (8.5,-1.5){};
+        \node[nand port](ANDa)at (2, 0){};
+        \node[nand port](ANDb)at (2, -1){};
+        \node[nand port](ANDc)at (2, -2){};
+        \node[not port](NOTa) at(6.5,-0.5){};
+        % Connection
+        \draw (ANDa.out) -| (ORa.in 1);
+        \draw (ANDb.out) -| (ORa.in 2);
+        \draw (NOTa.out) -| (ORb.in 1);
+        \draw (ANDb.in 1) -- ++(-1.5,0)node[left](xpr){$x'$};
+        \draw (ANDb.in 2) -- ++(-1.5,0)node[left](ypr){$y'$};
+        \draw (ORa.out)-- (NOTa.in);
+        \draw (ANDc.out) -| (ORb.in 2);
+        \draw (ANDa.in 1)-- ++(-1.5,0)node[left](x){$x$};
+        \draw (ANDa.in 2)-- ++(-1.5,0)node[left](y){$y$};
+        \draw (ANDc.in 1) -| (ANDb.in 2);
+        \draw (ANDc.in 2) -- ++(-1.5,0)node[left](z){$z$};
+        \draw (ORb.out) -- ++(1,0)node[right]{$F$};
+        \end{tikzpicture}}}
+        \end{enumerate}
+\end{enumerate}
+\vspace{6.5cm}
+Tools used in creating this document:
+ \begin{itemize}
+ \item Texmaker 5.0.4
+\end{itemize}  
+ 
+ \copyright All questions in this file has been adapted from the sheet provided by the course instructor, I have only reorganized the sheet and attempted to answer it. Please do not share without the permission of the owner.\\
+\color{blue}Ahmad.Aboelnaga@ejust.edu.eg\\
+ID:120200033, CSE01
+ 
+  
+\end{document}			
