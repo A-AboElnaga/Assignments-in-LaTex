@@ -1,0 +1,10 @@
+\babel@toc {english}{}\relax 
+\contentsline {paragraph}{\LARGE Question 1:}{ii}{}%
+\contentsline {paragraph}{\LARGE Question 2:}{iii}{}%
+\contentsline {subparagraph}{\Large Truncation Error:\\}{iii}{}%
+\contentsline {paragraph}{\LARGE Question 3:}{iv}{}%
+\contentsline {paragraph}{\LARGE Question 4:}{v}{}%
+\contentsline {paragraph}{\LARGE Question 5:}{vi}{}%
+\contentsline {paragraph}{\LARGE Question 6:}{vii}{}%
+\contentsline {paragraph}{\LARGE Question 7:}{viii}{}%
+\contentsline {paragraph}{\LARGE Question 8:}{ix}{}%
